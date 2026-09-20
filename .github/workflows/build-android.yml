@@ -45,6 +45,8 @@ jobs:
           gradle-version: '8.11.1'
 
       - name: Validate shared web source
+        # .nojekyll is a GitHub Pages deployment marker and is intentionally NOT
+        # required by the APK build. Hidden dotfiles can be skipped by browser uploads.
         run: python3 web/tests/static_validate.py
 
       - name: Verify JavaScript syntax
@@ -63,11 +65,11 @@ jobs:
 
       - name: Stage APK
         shell: bash
-        run: cp android/app/build/outputs/apk/debug/app-debug.apk FieldReady-Competency-Study-v4.1.3.apk
+        run: cp android/app/build/outputs/apk/debug/app-debug.apk FieldReady-Competency-Study-v4.1.4.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: FieldReady-Competency-Study-v4.1.3-APK
-          path: FieldReady-Competency-Study-v4.1.3.apk
+          name: FieldReady-Competency-Study-v4.1.4-APK
+          path: FieldReady-Competency-Study-v4.1.4.apk
           if-no-files-found: error
