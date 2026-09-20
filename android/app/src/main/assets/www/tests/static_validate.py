@@ -125,7 +125,7 @@ for fn in ['renderParticipantIndex','openLongitudinalRecord','renderLongitudinal
 for tp in ["'baseline'","'3-month'","'6-month'"]:
     if tp not in app: errors.append(f'Missing study timepoint in app.js: {tp}')
 if 'assessment_stopwatch_seconds' not in app: errors.append('Exports missing assessment_stopwatch_seconds')
-if '4.1.2-synced' not in version: errors.append('version.js not updated to 4.1.2-synced')
+if '4.1.3-synced' not in version: errors.append('version.js not updated to 4.1.3-synced')
 
 
 # Splash-page password gate.

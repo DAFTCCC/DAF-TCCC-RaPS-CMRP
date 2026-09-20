@@ -1,20 +1,24 @@
-# FIELDREADY ANDROID APK BUILD REPOSITORY — v4.1.2
+# FieldReady APK BUILD v4.1.3
 
-**Use this package when your goal is to build the Android `.apk`.**
+This package is the **Android APK build repository only**.
 
-Upload the **contents of this folder** to the root of a GitHub repository. Then run:
+## What changed in v4.1.3
 
-**GitHub → Actions → Build FieldReady Android APK → Run workflow**
+The prior workflow used `android-actions/setup-android@v3`. In September 2026, Google stopped serving the deprecated Android SDK `tools` package. That version of the action attempted to install `tools`, so the workflow failed during Android SDK setup with:
 
-The workflow builds the Android application from the included `/android` project and copies the included `/web` FieldReady source into the Android app so the APK matches the web version.
+`Warning: Failed to find package 'tools'`
 
-## Included
-- `/android` — Android Studio / Gradle project
-- `/web` — synchronized FieldReady web source embedded into the APK during build
-- `/.github/workflows/build-android.yml` — APK build workflow
-- `/tools` — synchronization verification
+v4.1.3 updates the workflow to `android-actions/setup-android@v4`, explicitly installs only `platform-tools`, then installs the required Android 35 platform and build tools with `sdkmanager`.
 
-## Not included
-- GitHub Pages deployment workflow. This package is for the APK build only.
+## Build the APK
 
-Version: v4.1.2
+1. Extract this ZIP.
+2. Upload **everything inside the extracted folder** to the root of the GitHub repository.
+3. Commit the files to `main`.
+4. Open **Actions**.
+5. Select **Build FieldReady Android APK**.
+6. Choose **Run workflow**.
+7. After the workflow finishes, download the artifact named **FieldReady-Competency-Study-v4.1.3-APK**.
+8. Extract the artifact ZIP to get `FieldReady-Competency-Study-v4.1.3.apk`.
+
+The `/web` directory remains the single source for the FieldReady interface embedded in the Android application.
