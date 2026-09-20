@@ -10,8 +10,8 @@ Then run:
 
 Expected artifact:
 
-`FieldReady-Competency-Study-v4.1.3-APK`
+`FieldReady-Competency-Study-v4.1.4-APK`
 
 The final APK inside that artifact is:
 
-`FieldReady-Competency-Study-v4.1.3.apk`
+`FieldReady-Competency-Study-v4.1.4.apk`

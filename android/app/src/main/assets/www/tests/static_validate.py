@@ -3,7 +3,7 @@ import re, sys, subprocess, json, tempfile
 
 root=Path(__file__).resolve().parents[1]
 errors=[]
-required=['index.html','styles.css','version.js','access-config.js','locations.js','skills.js','app.js','manifest.webmanifest','sw.js','README.md','DATA_DICTIONARY.md','VALIDATION.md','SOURCE_MAPPING.md','PAGE4_FAILURE_WORKFLOW.md','.nojekyll','assets/icon.svg']
+required=['index.html','styles.css','version.js','access-config.js','locations.js','skills.js','app.js','manifest.webmanifest','sw.js','README.md','DATA_DICTIONARY.md','VALIDATION.md','SOURCE_MAPPING.md','PAGE4_FAILURE_WORKFLOW.md','assets/icon.svg']
 for f in required:
     if not (root/f).exists(): errors.append(f'Missing {f}')
 
@@ -125,7 +125,7 @@ for fn in ['renderParticipantIndex','openLongitudinalRecord','renderLongitudinal
 for tp in ["'baseline'","'3-month'","'6-month'"]:
     if tp not in app: errors.append(f'Missing study timepoint in app.js: {tp}')
 if 'assessment_stopwatch_seconds' not in app: errors.append('Exports missing assessment_stopwatch_seconds')
-if '4.1.3-synced' not in version: errors.append('version.js not updated to 4.1.3-synced')
+if '4.1.4-synced' not in version: errors.append('version.js not updated to 4.1.4-synced')
 
 
 # Splash-page password gate.
