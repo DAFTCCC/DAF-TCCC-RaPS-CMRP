@@ -1,0 +1,36 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.fieldready.competencystudy'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.fieldready.competencystudy'
+        minSdk 26
+        targetSdk 35
+        versionCode 40102
+        versionName '4.1.2'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.12.1'
+}
+
+// Single-source synchronization: every Android build copies the current
+// repository /web source into the APK. Do not edit assets/www manually.
+tasks.register('syncWebAssets', Sync) {
+    from('../../web')
+    into('src/main/assets/www')
+}
+
+preBuild.dependsOn(tasks.named('syncWebAssets'))
